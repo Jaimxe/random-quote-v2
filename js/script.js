@@ -46,6 +46,7 @@ function printQuote(){
   selector = getRandomQuote();
   randomQuote = quotes[selector].quote;
   author = quotes[selector].source;
+  tag = quotes[selector].tag
   document.getElementById('quote').innerHTML =  randomQuote;
   document.getElementById('source').innerHTML =  author;
   document.body.style.backgroundColor = randomColor();
