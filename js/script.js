@@ -1,10 +1,15 @@
+//Random Quote Generator
+//Jaime Aguilar
+// 05/02/2018
+
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+//quotes
 var quotes =[
   {
-    quote:"Maybe it is stupid, but its also dumb",
+    quote:"Maybe it is stupid, but it's also dumb",
     source: "Patrick Star"
   },
   {
@@ -29,33 +34,35 @@ var quotes =[
 var randomQuote;
 var author;
 
-
+//generate a random quote number
 function getRandomQuote(){
   var randomNum = Math.floor(Math.random() * quotes.length);
   return randomNum;
 }
 
-
+//calls  getRandomQuote function and assigns it to selector var
+//prints quote and author from randomly selected
 function printQuote(){
-    selector = getRandomQuote();
-    randomQuote = quotes[selector].quote;
-    author = quotes[selector].source;
-    document.getElementById('quote').innerHTML =  randomQuote;
-    document.getElementById('source').innerHTML =  author;
+  selector = getRandomQuote();
+  randomQuote = quotes[selector].quote;
+  author = quotes[selector].source;
+  document.getElementById('quote').innerHTML =  randomQuote;
+  document.getElementById('source').innerHTML =  author;
+  document.body.style.backgroundColor = randomColor();
 }
 
-/*
-// * NOT WORKING *
-// * Crashing browser *
-//Generate a random RGB Color and save it to an array
-var arr =[];
-function randomRGB(){
-  for(var i = 0; i<3; i+1){
-    var num = Math.floor(Math.random() * 256);
-    arr.push(num);
-  }
-  var rgbColor = "rgb (" + arr[0] + "," + arr[1] + "," + arr[2] + ")";
+//call printQuote funtion to give first quote
+printQuote();
+
+
+// random number for RGB Color
+function randomNumber(){
+  var randomNum = Math.floor(Math.random() * 256);
+  return randomNum;
+}
+
+//Generate a random RGB Color
+function randomColor(){
+  var rgbColor = "rgb(" + randomNumber() + "," + randomNumber() + "," + randomNumber() + ")";
   return rgbColor;
 }
-
-*/
