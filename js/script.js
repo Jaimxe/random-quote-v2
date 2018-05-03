@@ -21,18 +21,41 @@ var quotes =[
   },
   {
     quote: "Weather forcast for tonight: Dark.",
-    source:"George Carlin"
+    source:"George Carlin",
   }
 ];
+
 //variables
 var randomQuote;
 var author;
 
-//funtion to get random random quote
-function printQuote(){
-  var randomNum = Math.floor(Math.random() * quotes.length)
-    randomQuote = quotes[randomNum].quote;
-    author = quotes[randomNum].source;
-    document.getElementById("quote").innerHTML =  randomQuote;
-    document.getElementById("source").innerHTML =  author;
+
+function getRandomQuote(){
+  var randomNum = Math.floor(Math.random() * quotes.length);
+  return randomNum;
 }
+
+
+function printQuote(){
+    selector = getRandomQuote();
+    randomQuote = quotes[selector].quote;
+    author = quotes[selector].source;
+    document.getElementById('quote').innerHTML =  randomQuote;
+    document.getElementById('source').innerHTML =  author;
+}
+
+/*
+// * NOT WORKING *
+// * Crashing browser *
+//Generate a random RGB Color and save it to an array
+var arr =[];
+function randomRGB(){
+  for(var i = 0; i<3; i+1){
+    var num = Math.floor(Math.random() * 256);
+    arr.push(num);
+  }
+  var rgbColor = "rgb (" + arr[0] + "," + arr[1] + "," + arr[2] + ")";
+  return rgbColor;
+}
+
+*/
