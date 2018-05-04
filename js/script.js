@@ -1,6 +1,6 @@
 //Random Quote Generator
 //Jaime Aguilar
-// 05/02/2018
+// 05/04/2018
 
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
