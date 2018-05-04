@@ -11,7 +11,6 @@ var quotes =[
   {
     quote:"Maybe it is stupid, but it's also dumb.",
     source: "Patrick Star",
-    year: "Spongebob SquarePants"
   },
   {
     quote:"Behind every great man, is a woman rolling her eyes.",
