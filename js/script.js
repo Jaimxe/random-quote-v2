@@ -9,8 +9,9 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 //quotes
 var quotes =[
   {
-    quote:"Maybe it is stupid, but it's also dumb",
-    source: "Patrick Star"
+    quote:"Maybe it is stupid, but it's also dumb.",
+    source: "Patrick Star",
+    year: "Spongebob SquarePants"
   },
   {
     quote:"Behind every great man, is a woman rolling her eyes.",
@@ -33,28 +34,35 @@ var quotes =[
 //variables
 var randomQuote;
 var author;
+var timeKeeper;
+
+//call printQuote funtion to give first quote
+printQuote();
 
 //generate a random quote number
 function getRandomQuote(){
   var randomNum = Math.floor(Math.random() * quotes.length);
   return randomNum;
 }
-
 //calls  getRandomQuote function and assigns it to selector var
 //prints quote and author from randomly selected
 function printQuote(){
   selector = getRandomQuote();
   randomQuote = quotes[selector].quote;
   author = quotes[selector].source;
-  tag = quotes[selector].tag
   document.getElementById('quote').innerHTML =  randomQuote;
   document.getElementById('source').innerHTML =  author;
   document.body.style.backgroundColor = randomColor();
+  //if printQuote is called, clear the timer
+  clearInterval(timeKeeper);
+  //and call the bgTimer function again
+  bgTimer();
 }
 
-//call printQuote funtion to give first quote
-printQuote();
-
+//set timer to call printQuote funtion after 30 seconds
+function bgTimer(){
+  timeKeeper = setInterval(printQuote, 30000,);
+}
 
 // random number for RGB Color
 function randomNumber(){
